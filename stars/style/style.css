@@ -8,7 +8,7 @@
 	padding-right: 6px;
 }
 
-#contyner 
+#contyner
 {
 	width: 1260px;
 	height: 780px;
@@ -40,10 +40,10 @@
 
 #inp {
 	background: #999999; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
 	opacity: 0.8;
 	margin-top: 5px;
 	margin-left: auto;
@@ -53,6 +53,7 @@
 	text-align: center;
 	border: double 1px #555555;
 	border-radius: 3px;
+
 }
 
 #inpp {
@@ -63,10 +64,10 @@
 
 #inpca {
 	background: #999999; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
 	opacity: 0.8;
 	margin: 2px auto 2px auto;
 	padding-bottom: 5px;
@@ -112,10 +113,10 @@
 
 #inpl {
 	background: #999999; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#707070, #999999, #EEEEEE); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#707070, #999999, #EEEEEE); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#707070, #999999, #EEEEEE); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#707070, #999999, #EEEEEE); /* Standard syntax (must be last) */
 	opacity: 0.8;
 	margin-top: 5px;
 	margin-left: auto;
@@ -137,10 +138,10 @@
 	display: inline-block;
 	border-radius: 10px;
 	background: #33FF33; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#707070, #33FF33); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#707070, #33FF33); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#707070, #33FF33); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#009900, #33FF33, #009900); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#707070, #33FF33); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#707070, #33FF33); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#707070, #33FF33); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#009900, #33FF33, #009900); /* Standard syntax (must be last) */
 	border: double 1px #555555;
 	color: #FFFFFF;
 	text-align: center;
@@ -182,10 +183,10 @@
 	display: inline-block;
 	border-radius: 10px;
 	background: #33FF33; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#707070, #33FF33); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#707070, #33FF33); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#707070, #33FF33); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#009900, #33FF33, #009900); /* Standard syntax (must be last) */
+  background: -webkit-linear-gradient(#707070, #33FF33); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#707070, #33FF33); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#707070, #33FF33); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#009900, #33FF33, #009900); /* Standard syntax (must be last) */
 	border: double 1px #555555;
 	color: #FFFFFF;
 	text-align: center;
