@@ -1,0 +1,16 @@
+$logoColor: rgb(255, 255, 255);
+$logoShadow1: rgb(0, 0, 0);
+$logoShadow2: rgb(0, 0, 255);
+$logoShadow3: rgb(0, 0, 139);
+$logoTextShadow: 6px 6px 10px $logoShadow1, 0 0 45px $logoShadow2, 0 0 28px $logoShadow3;
+
+$boxContBackground: rgba(0, 51, 136, 0.7);
+$boxContBorder: rgb(85, 85, 85);
+$boxContColor: rgb(255, 255, 255);
+
+$buttonColor: rgb(255, 255, 255);
+$buttonBorder: rgb(85, 85, 85);
+$buttonBackground1: rgba(51, 255, 51, 0.7);
+$buttonBackground2: rgba(0, 153, 0, 0.7);
+$buttonTextShadow: 3px 3px 5px $logoShadow1, 0 0 22px $logoShadow2, 0 0 14px $logoShadow3;
+$buttonBoxShadow: 3px 3px 5px $logoShadow1, 0 0 25px $logoShadow2, 0 0 25px $logoShadow3;

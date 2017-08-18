@@ -1,0 +1,27 @@
+footer
+{
+  display: flex;
+  align-content: space-between;
+}
+
+.infofo
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px 5px;
+	width: 1050px;
+  background-color: $boxContBackground;
+  border: double 4px $boxContBorder;
+  border-radius: 3px;
+	color: $logoColor;
+	font-family: 'Audiowide', cursive;
+}
+
+.infofoPoz
+{
+  display: flex;
+  align-items: center;
+  margin: 0px 5px;
+  font-size: 20px;
+}
