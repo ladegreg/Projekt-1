@@ -37,6 +37,9 @@ export class GameBoxCont extends React.Component{
       return(
         <div className='gameboxcont'>
           <Wyprawy
+            kolonisciBaza= {this.props.kolonisciBaza}
+            naukowcyBaza= {this.props.naukowcyBaza}
+            zolnierzBaza= {this.props.zolnierzBaza}
             wyprawaWyslana= {this.props.wyprawaWyslana}/>
         </div>
       );

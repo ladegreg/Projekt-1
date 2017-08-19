@@ -24,13 +24,7 @@ export class StarGra extends React.Component{
       //konto
       konto: 10000,
       //załoga
-      kolonisci: 30,
-      naukowcy: 10,
-      zolnierz: 5,
-      kolonisciBaza: 0,
-      naukowcyBaza: 0,
-      zolnierzBaza: 0,
-      zaloga: 0,
+      kolonisci: 30, naukowcy: 10, zolnierz: 5, kolonisciBaza: 30, naukowcyBaza: 10, zolnierzBaza: 5, zaloga: 45,
       //magazyn
       krzem: 2000, stal: 2255, uran: 2287, moc: 2000,
     };
@@ -176,7 +170,12 @@ componentDidMount(t){
         produkcjaTime={this.state.produkcjaTime}
         startProd= {this.startProd}
         wyprawaWyslana= {this.state.wyprawaWyslana}
-        kolonisci= {this.state.kolonisci}/>
+        kolonisci= {this.state.kolonisci}
+        naukowcy= {this.state.naukowcy}
+        zolnierz= {this.state.zolnierz}
+        kolonisciBaza= {this.state.kolonisciBaza}
+        naukowcyBaza= {this.state.naukowcyBaza}
+        zolnierzBaza= {this.state.zolnierzBaza}/>
     );
   }
 }
@@ -213,7 +212,9 @@ class Contyner extends React.Component{
             produkcja={this.props.produkcja}
             produkcjaTime={this.props.produkcjaTime}
             startProd= {this.props.startProd}
-            kolonisci= {this.props.kolonisci}
+            kolonisciBaza= {this.props.kolonisciBaza}
+            naukowcyBaza= {this.props.naukowcyBaza}
+            zolnierzBaza= {this.props.zolnierzBaza}
             wyprawaWyslana= {this.props.wyprawaWyslana}/>
         </section>
         <footer>

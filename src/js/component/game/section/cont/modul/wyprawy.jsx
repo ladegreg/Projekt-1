@@ -1,6 +1,54 @@
 import React from "react";
 
+class BoxWyprawaStart extends React.Component{
+  render(){
+    return(
+      <div className="inpb">
+        <button className="buttonr"><span>Wyśli</span></button>
+      </div>
+    )
+  }
+}
+  <div className="inpb">
+    <button className="buttonr"><span>Wyśli</span></button>
+  </div>
+
+class Ling extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      ile: this.props.Baza
+    }
+  }
+  kalkwyp = e => {
+    e.preventDefault();
+    this.setState({
+      ile: e.target.value
+    })
+  }
+  render(){
+    return(
+      <div>
+        <label>{this.props.name + this.state.ile}</label>
+        <input type="range" min="0" max={this.props.Baza} onChange={this.kalkwyp}/>
+      </div>
+    )
+  }
+}
+
 export class Wyprawy extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      ile: 1
+    }
+  }
+  kalkdni = e => {
+    e.preventDefault();
+    this.setState({
+      ile: e.target.value
+    })
+  }
   render(){
     if(this.props.wyprawaWyslana === false){
       return(
@@ -10,20 +58,16 @@ export class Wyprawy extends React.Component{
             <div className='boxBoxPod'>
               <form>
                 <div>
-                  <label>Koloniści: <input type="range" min="0" max={this.props.kolonisci} name="login"/>
-                  </label>
+                  <Ling name="Koloniści: " Baza={this.props.kolonisciBaza}/>
                 </div>
                 <div>
-                  <label>Nałukowcy <input type="range" min="0" max="10" name="login"/>
-                  </label>
+                  <Ling name="Nałukowcy: " Baza={this.props.naukowcyBaza}/>
                 </div>
                 <div>
-                  <label>Czas trfania wyprawy <input type="range" min="0" max="10" name="login"/>
+                  <label>Czas trfania wyprawy {this.state.ile} <input type="range" min="0" max="365" onChange={this.kalkdni}/> dni
                   </label>
                 </div>
-                <div className="inpb">
-                  <button className="buttonr"><span>Wyśli</span></button>
-                </div>
+                <BoxWyprawaStart dni={this.state.ile}/>
             </form>
             </div>
           </div>
