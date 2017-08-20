@@ -2,7 +2,7 @@ import React from "react";
 
 class BoxProduPozStart extends React.Component{
   render(){
-    if(this.props.krzem < this.props.krzemP * this.props.ile || this.props.stal < this.props.stalP * this.props.ile || this.props.uran < this.props.uranP * this.props.ile){
+    if(this.props.krzem < this.props.krzemP * this.props.ile || this.props.stal < this.props.stalP * this.props.ile || this.props.uran < this.props.uranP * this.props.ile  || this.props.mocWolna < this.props.mocP * this.props.ile){
       return(
         <button className='buttonMenuMenu'>Nie przesadzaj</button>
       );
@@ -11,6 +11,7 @@ class BoxProduPozStart extends React.Component{
         data-km={this.props.krzemP * this.props.ile}
         data-sm={this.props.stalP * this.props.ile}
         data-um={this.props.uranP * this.props.ile}
+        data-mw={this.props.mocP * this.props.ile}
         data-pr= {this.props.pr}
         data-ile={this.props.ile}
         data-time={this.props.time * this.props.ile}
@@ -36,7 +37,7 @@ class BoxProduPoz extends React.Component{
 
   render(){
     return(
-      <div className='boxBoxI' name='50'>
+      <div className='boxBoxI'>
         <h1>{this.props.kname}</h1>
         <label>Planowana ilość:</label>
         <input type='text' value={this.state.ile} onChange={this.kalkbud}/>
@@ -45,7 +46,7 @@ class BoxProduPoz extends React.Component{
           <h7>Krzem: {this.props.krzemP * this.state.ile}T<br/></h7>
           <h7>Stal: {this.props.stalP * this.state.ile}T<br/></h7>
           <h7>Uran: {this.props.uranP * this.state.ile}T<br/></h7>
-          <h7>Moc: {this.props.mocP * this.state.ile}kw<br/></h7>
+          <h7>Moc: {this.props.mocP * this.state.ile}kw/dzień<br/></h7>
         <BoxProduPozStart
           ile= {this.state.ile}
           krzemP= {this.props.krzemP}
@@ -55,7 +56,7 @@ class BoxProduPoz extends React.Component{
           krzem= {this.props.krzem}
           stal= {this.props.stal}
           uran= {this.props.uran}
-          moc= {this.props.moc}
+          mocWolna= {this.props.mocWolna}
           kname= {this.props.kname}
           pr= {this.props.pr}
           time= {this.props.time}
@@ -73,7 +74,7 @@ class BoxProdu extends React.Component{
           krzem= {this.props.krzem}
           stal= {this.props.stal}
           uran= {this.props.uran}
-          moc= {this.props.moc}
+          mocWolna= {this.props.mocWolna}
           startProd= {this.props.startProd}/>
       );
     } else if(this.props.boxi == '0112'){
@@ -82,7 +83,7 @@ class BoxProdu extends React.Component{
           krzem= {this.props.krzem}
           stal= {this.props.stal}
           uran= {this.props.uran}
-          moc= {this.props.moc}
+          mocWolna= {this.props.mocWolna}
           startProd= {this.props.startProd}/>
       );
     } else if(this.props.boxi == '0212'){
@@ -91,7 +92,7 @@ class BoxProdu extends React.Component{
           krzem= {this.props.krzem}
           stal= {this.props.stal}
           uran= {this.props.uran}
-          moc= {this.props.moc}
+          mocWolna= {this.props.mocWolna}
           startProd= {this.props.startProd}/>
       );
     } else if(this.props.boxi == '0312'){
@@ -100,7 +101,7 @@ class BoxProdu extends React.Component{
           krzem= {this.props.krzem}
           stal= {this.props.stal}
           uran= {this.props.uran}
-          moc= {this.props.moc}
+          mocWolna= {this.props.mocWolna}
           startProd= {this.props.startProd}/>
       );
     } return(
@@ -157,7 +158,7 @@ export class Produ extends React.Component{
             krzem= {this.props.krzem}
             stal= {this.props.stal}
             uran= {this.props.uran}
-            moc= {this.props.moc}
+            mocWolna= {this.props.mocWolna}
             startProd= {this.props.startProd}/>
         </div>
       );

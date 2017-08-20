@@ -9,6 +9,7 @@ export class Info extends React.Component{
         <div className='infoPoz'>| Krzem: {this.props.krzem} |</div>
         <div className='infoPoz'>| Stal: {this.props.stal} |</div>
         <div className='infoPoz'>| Uran: {this.props.uran} |</div>
+        <div className='infoPoz'>| Żywność: {this.props.zywnosc} |</div>
         <div className='infoPoz'>| Moc: {this.props.moc} |</div>
       </div>
     );

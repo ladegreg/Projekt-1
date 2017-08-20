@@ -10,10 +10,10 @@ class App extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-  gracz: 'Bolek',
-  start: true
-  // gracz: NaN,
-  // start: false
+  // gracz: 'Bolek',
+  // start: true
+  gracz: NaN,
+  start: false
   }
 }
 
