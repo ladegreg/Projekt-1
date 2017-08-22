@@ -7,6 +7,7 @@ import {Budynki} from './modul/budynki.jsx';
 import {Zaloga} from './modul/zaloga.jsx';
 import {Wydobycie} from './modul/wydobycie.jsx';
 import {Uprawy} from './modul/uprawy.jsx';
+import {Generator} from './modul/generator.jsx';
 
 export class GameBoxCont extends React.Component{
   render(){
@@ -89,7 +90,8 @@ export class GameBoxCont extends React.Component{
     } else if(this.props.box == '05'){
       return(
         <div className='gameboxcont'>
-          <p>Generator</p>
+          <Generator
+            generator= {this.props.generator}/>
         </div>
       );
     } else if(this.props.box == '06'){

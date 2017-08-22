@@ -26,9 +26,9 @@ export class StarGra extends React.Component{
       //złoża
       krzemWyd: 0, stalWyd: 0, uranWyd: 0,
       //konto
-      konto: 10000, mocWolna: 2000, mocBud: 0, mocProd: 0,
+      konto: 10000, mocWolna: 0, mocBud: 0, mocProd: 0,
       //załoga
-      kolonisci: 60, naukowcy: 40, zolnierz: 5, kolonisciBaza: 60, naukowcyBaza: 40, zolnierzBaza: 5, zaloga: 45,
+      kolonisci: 60, naukowcy: 40, zolnierz: 5, kolonisciBaza: 60, naukowcyBaza: 40, zolnierzBaza: 5,
       //magazyn
       krzem: 2000, stal: 2255, uran: 2287, zywnosc: 2000
     };
@@ -49,7 +49,6 @@ export class StarGra extends React.Component{
       krzem: this.state.krzem - e.target.dataset.km,
       stal: this.state.stal - e.target.dataset.sm,
       uran: this.state.uran - e.target.dataset.um,
-      mocWolna: this.state.mocWolna - e.target.dataset.mw,
       mocBud: parseInt(e.target.dataset.mw)}
     let trok = parseInt(e.target.dataset.time)*2500;
     let troki = parseInt(e.target.dataset.ile);
@@ -57,11 +56,10 @@ export class StarGra extends React.Component{
     let trokis =  e.target.dataset.pr;
     this.setState(state);
     setTimeout(()=>this.setState({[trokis]: this.state[trokis]+troki}), trok);
-    setTimeout(()=>this.startBudMoc(  ), trok);
+    setTimeout(()=>this.startBudMoc(), trok);
   }
   startBudMoc = e =>{
     this.setState({
-      mocWolna: this.state.mocWolna + this.state.mocBud,
       mocBud: 0
     });
   }
@@ -74,7 +72,6 @@ export class StarGra extends React.Component{
       krzem: this.state.krzem - e.target.dataset.km,
       stal: this.state.stal - e.target.dataset.sm,
       uran: this.state.uran - e.target.dataset.um,
-      mocWolna: this.state.mocWolna - e.target.dataset.mw,
       mocProd: parseInt(e.target.dataset.mw)}
     let trok = parseInt(e.target.dataset.time)*2500;
     let troki = parseInt(e.target.dataset.ile);
@@ -86,7 +83,6 @@ export class StarGra extends React.Component{
   }
   startProdMoc = e =>{
     this.setState({
-      mocWolna: this.state.mocWolna + this.state.mocProd,
       mocProd: 0
     });
   }
@@ -97,21 +93,15 @@ export class StarGra extends React.Component{
       wyprawaTime: e.target.dataset.dniwyprawy,
       wyprawaWyslana: !this.state.wyprawaWyslana,
       kolonisciBaza: this.state.kolonisciBaza - e.target.dataset.kolbazz,
-      kolonisciWyprawa: e.target.dataset.kolbazz,
+      kolonisciWyprawa: parseInt(e.target.dataset.kolbazz),
       naukowcyBaza: this.state.naukowcyBaza - e.target.dataset.naubazz,
-      naukowcyWyprawa: e.target.dataset.naubazz
+      naukowcyWyprawa: parseInt(e.target.dataset.naubazz)
     }
     this.setState(state);
     let trok = parseInt(e.target.dataset.dniwyprawy)*2500;
     let kolBazlet = parseInt(e.target.dataset.kolbazz);
     let nauBazlet = parseInt(e.target.dataset.naubazz);
-    let statez = {
-      kolonisciBaza: this.state.kolonisciBaza,
-      kolonisciWyprawa: 0,
-      naukowcyBaza: this.state.naukowcyBaza,
-      naukowcyWyprawa: 0
-    }
-    setTimeout(()=>this.setState(statez), trok);
+    setTimeout(()=>this.startWyprBaz(), trok);
     let ggg = ((kolBazlet*0.003)+(nauBazlet*0.009)*(trok/4000));
     if(ggg> 2.4){
       setTimeout(()=>this.setState({
@@ -130,6 +120,14 @@ export class StarGra extends React.Component{
       }), trok);
     }
   }
+  startWyprBaz = e =>{
+    this.setState({
+      kolonisciBaza: this.state.kolonisciBaza + this.state.kolonisciWyprawa,
+      kolonisciWyprawa: 0,
+      naukowcyBaza: this.state.naukowcyBaza + this.state.naukowcyWyprawa,
+      naukowcyWyprawa: 0
+    });
+  }
 
   startUprawa = e =>{
     e.preventDefault();
@@ -137,16 +135,12 @@ export class StarGra extends React.Component{
       uprawaTime: e.target.dataset.dniuprawy,
       uprawaWyslana: !this.state.uprawaWyslana,
       kolonisciBaza: this.state.kolonisciBaza - e.target.dataset.kolbazz,
-      kolonisciUprawa: e.target.dataset.kolbazz
+      kolonisciUprawa: parseInt(e.target.dataset.kolbazz)
     }
     this.setState(state);
     let trok = parseInt(e.target.dataset.dniuprawy)*2500;
     let kolBazlet = parseInt(e.target.dataset.kolbazz);
-    let statez = {
-      kolonisciBaza: this.state.kolonisciBaza,
-      kolonisciUprawa: 0
-    }
-    setTimeout(()=>this.setState(statez), trok);
+    setTimeout(()=>this.startWyprBaz(), trok);
     let ggg = ((kolBazlet*0.003)*(trok/2500));
     if(ggg> 2.4){
       setTimeout(()=>this.setState({
@@ -160,9 +154,17 @@ export class StarGra extends React.Component{
       setTimeout(()=>this.setState({
         zywnosc: this.state.zywnosc + Math.floor(Math.random()*ggg*100)
       }), trok);
-    }
+    } else setTimeout(()=>this.setState({
+      zywnosc: this.state.zywnosc + Math.floor(Math.random()*ggg*100)
+    }), trok);
     console.log(ggg*1000);
     console.log(this.state.zywnosc);
+  }
+  startUpraBaz = e =>{
+    this.setState({
+      kkolonisciBaza: this.state.kolonisciBaza + this.state.kolonisciUprawa,
+      kolonisciUprawa: 0
+    });
   }
 
 componentDidMount(t){
@@ -269,13 +271,13 @@ componentDidMount(t){
         dni= {this.state.dni}
         mies= {this.state.mies}
         rok= {this.state.rok}
-        zaloga= {this.state.zaloga}
+        zaloga= {this.state.kolonisci+this.state.naukowcy+this.state.zolnierz}
         krzem= {this.state.krzem}
         stal= {this.state.stal}
         uran= {this.state.uran}
         zywnosc= {this.state.zywnosc}
         moc= {this.state.generator*2000}
-        mocWolna= {this.state.mocWolna}
+        mocWolna= {(this.state.generator*2000)-this.state.mocBud-this.state.mocProd}
         budowa={this.state.budowa}
         budowaTime={this.state.budowaTime}
         menu= {this.menuBox}
@@ -304,7 +306,7 @@ componentDidMount(t){
         uprawaTime= {this.state.uprawaTime}
         kolonisciUprawa= {this.state.kolonisciUprawa}
         startUprawa= {this.startUprawa}
-        />
+        generator= {this.state.generator}/>
     );
   }
 }
@@ -364,7 +366,8 @@ class Contyner extends React.Component{
             uprawaWyslana= {this.props.uprawaWyslana}
             uprawaTime= {this.props.uprawaTime}
             kolonisciUprawa= {this.props.kolonisciUprawa}
-            startUprawa= {this.props.startUprawa}/>
+            startUprawa= {this.props.startUprawa}
+            generator= {this.props.generator}/>
         </section>
         <footer>
           <Foot
