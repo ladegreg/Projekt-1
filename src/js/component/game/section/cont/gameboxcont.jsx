@@ -8,6 +8,7 @@ import {Zaloga} from './modul/zaloga.jsx';
 import {Wydobycie} from './modul/wydobycie.jsx';
 import {Uprawy} from './modul/uprawy.jsx';
 import {Generator} from './modul/generator.jsx';
+import {Magazyny} from './modul/magazyny.jsx';
 
 export class GameBoxCont extends React.Component{
   render(){
@@ -91,13 +92,21 @@ export class GameBoxCont extends React.Component{
       return(
         <div className='gameboxcont'>
           <Generator
-            generator= {this.props.generator}/>
+            generator= {this.props.generator}
+            mocWolna= {this.props.mocWolna}/>
         </div>
       );
     } else if(this.props.box == '06'){
       return(
         <div className='gameboxcont'>
-          <p>Magazyny</p>
+          <Magazyny
+            krzem= {this.props.krzem}
+            stal= {this.props.stal}
+            uran= {this.props.uran}
+            zywnosc= {this.props.zywnosc}
+            magazyny= {this.props.magazyny}
+            magazynyPojemnosc= {this.props.magazynyPojemnosc}
+            />
         </div>
       );
     } else if(this.props.box == '07'){

@@ -337,6 +337,7 @@ class Contyner extends React.Component{
             krzem= {this.props.krzem}
             stal= {this.props.stal}
             uran= {this.props.uran}
+            zywnosc= {this.props.zywnosc}
             moc= {this.props.moc}
             mocWolna= {this.props.mocWolna}
             budowa={this.props.budowa}
