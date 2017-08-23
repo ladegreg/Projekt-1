@@ -115,7 +115,11 @@ export class GameBoxCont extends React.Component{
         <Wydobycie
           krzemWyd= {this.props.krzemWyd}
           stalWyd= {this.props.stalWyd}
-          uranWyd= {this.props.uranWyd}/>
+          uranWyd= {this.props.uranWyd}
+          startWydobywaj= {this.props.startWydobywaj}
+          krzemWydMin= {this.props.krzemWydMin}
+          stalWydMin= {this.props.stalWydMin}
+          uranWydMin={this.props.uranWydMin}/>
         </div>
       );
     } else if(this.props.box == '08'){

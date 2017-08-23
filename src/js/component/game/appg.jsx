@@ -24,7 +24,7 @@ export class StarGra extends React.Component{
       //uprawa
       uprawaWyslana: false, uprawaTime: 0, kolonisciUprawa: 0,
       //złoża
-      krzemWyd: 0, stalWyd: 0, uranWyd: 0,
+      krzemWyd: 33330, stalWyd: 33330, uranWyd: 333330, krzemWydMin: 0,stalWydMin: 0, uranWydMin: 0,
       //konto
       konto: 10000, mocWolna: 0, mocBud: 0, mocProd: 0,
       //załoga
@@ -167,6 +167,16 @@ export class StarGra extends React.Component{
     });
   }
 
+  startWydobywaj = e =>{
+    e.preventDefault();
+    let state = {
+      krzemWydMin: parseInt(e.target.dataset.krzemwydmin),
+      stalWydMin: parseInt(e.target.dataset.stalwydmin),
+      uranWydMin: parseInt(e.target.dataset.uranwydmin)}
+    this.setState(state);
+  }
+
+
 componentDidMount(t){
 // czas gry
   this.intervalId = setInterval(() => {
@@ -250,6 +260,45 @@ componentDidMount(t){
       });
     }
   }, 2500);
+  this.intervalId = setInterval((e) => {
+    if(this.state.krzemWyd < this.state.krzemWydMin){
+      this.setState({
+        krzemWydMin:  Math.round(this.state.krzemWydMin/2)
+    });
+  } else if(this.state.krzemWydMin > 0 && this.state.krzemWyd > 0){
+      let gg = {
+        krzem: this.state.krzem + this.state.krzemWydMin,
+        krzemWyd: this.state.krzemWyd - this.state.krzemWydMin
+      }
+      this.setState(gg);
+    }
+  }, 2500);
+  this.intervalId = setInterval((e) => {
+    if(this.state.stalWyd < this.state.stalWydMin){
+      this.setState({
+        stalWydMin:  Math.round(this.state.stalWydMin/2)
+    });
+  } else if(this.state.stalWydMin > 0 && this.state.stalWyd > 0){
+      let gg = {
+        stal: this.state.stal + this.state.stalWydMin,
+        stalWyd: this.state.stalWyd - this.state.stalWydMin
+      }
+      this.setState(gg);
+    }
+  }, 2500);
+  this.intervalId = setInterval((e) => {
+    if(this.state.uranWyd < this.state.uranWydMin){
+      this.setState({
+        uranWydMin:  Math.round(this.state.uranWydMin/2)
+    });
+  } else if(this.state.uranWydMin > 0 && this.state.uranWyd > 0){
+      let gg = {
+        uran: this.state.uran + this.state.uranWydMin,
+        uranWyd: this.state.uranWyd - this.state.uranWydMin
+      }
+      this.setState(gg);
+    }
+  }, 2500);
 
 }
 
@@ -306,7 +355,11 @@ componentDidMount(t){
         uprawaTime= {this.state.uprawaTime}
         kolonisciUprawa= {this.state.kolonisciUprawa}
         startUprawa= {this.startUprawa}
-        generator= {this.state.generator}/>
+        generator= {this.state.generator}
+        startWydobywaj= {this.startWydobywaj}
+        krzemWydMin= {this.state.krzemWydMin}
+        stalWydMin= {this.state.stalWydMin}
+        uranWydMin={this.state.uranWydMin}/>
     );
   }
 }
@@ -368,7 +421,11 @@ class Contyner extends React.Component{
             uprawaTime= {this.props.uprawaTime}
             kolonisciUprawa= {this.props.kolonisciUprawa}
             startUprawa= {this.props.startUprawa}
-            generator= {this.props.generator}/>
+            generator= {this.props.generator}
+            startWydobywaj= {this.props.startWydobywaj}
+            krzemWydMin= {this.props.krzemWydMin}
+            stalWydMin= {this.props.stalWydMin}
+            uranWydMin={this.props.uranWydMin}/>
         </section>
         <footer>
           <Foot
