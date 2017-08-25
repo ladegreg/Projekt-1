@@ -14,7 +14,7 @@ export class Magazyny extends React.Component{
             <p>Uran: {this.props.uran} Ton</p>
             <p>Zywność: {this.props.zywnosc} Ton</p>
           </div>
-        </div>ść
+        </div>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export class StarGra extends React.Component{
     this.state = {
       gracz: this.props.gracz,
       //czas gry
-      box: '09', s: 1, m: 0, g: 0,
+      box: '09', statek: true, statekPobyt: 131, statekZa: 20,  s: 1, m: 0, g: 0,
       //data gry
       dni: 1, dniii: 0, mies: 1, rok: 2053,
       // inwestycje
@@ -297,12 +297,38 @@ componentDidMount(t){
       this.setState(gg);
     }
   }, 2500);
-
+  // przylot statku
+  this.intervalId = setInterval((e) => {
+    if(this.state.statek === false){
+      this.setState({
+        statekZa: this.state.statekZa - 1
+      });
+      if(this.state.statekZa === 0){
+        let gg = {
+          statekZa: Math.floor(Math.random() * (365 - 20 + 1)) + 20,
+          statek: true
+        }
+        this.setState(gg);
+      }
+    } else {
+      this.setState({
+        statekPobyt: this.state.statekPobyt - 1
+      });
+      if(this.state.statekPobyt === 0){
+        let gg = {
+          statekPobyt: Math.floor(Math.random() * (40 - 20 + 1)) + 20,
+          statek: false
+        }
+        this.setState(gg);
+      }
+    }
+    }, 2500);
 }
 
   render(){
     return(
       <Contyner
+        statek= {this.state.statek}
         gracz= {this.state.gracz}
         box= {this.state.box}
         konto= {this.state.konto}
@@ -378,6 +404,7 @@ class Contyner extends React.Component{
         <section className='sections'>
           <Menu menu= {this.props.menu} />
           <GameBoxCont
+            statek= {this.props.statek}
             box ={this.props.box}
             mieszkania= {this.props.mieszkania}
             mieszkaniaPojemnosc= {this.props.mieszkaniaPojemnosc}

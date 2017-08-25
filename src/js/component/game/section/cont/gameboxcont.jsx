@@ -10,6 +10,7 @@ import {Uprawy} from './modul/uprawy.jsx';
 import {Generator} from './modul/generator.jsx';
 import {Magazyny} from './modul/magazyny.jsx';
 import {Raport} from './modul/raport.jsx';
+import {Handel} from './modul/handel.jsx';
 
 export class GameBoxCont extends React.Component{
   render(){
@@ -126,7 +127,13 @@ export class GameBoxCont extends React.Component{
     } else if(this.props.box == '08'){
       return(
         <div className='gameboxcont'>
-          <p>Handel</p>
+          <Handel
+            statek= {this.props.statek}
+            krzem= {this.props.krzem}
+            stal= {this.props.stal}
+            uran= {this.props.uran}
+            zywnosc= {this.props.zywnosc}
+            magazynyPojemnosc= {this.props.magazynyPojemnosc}/>
         </div>
       );
     } else if(this.props.box == '09'){
