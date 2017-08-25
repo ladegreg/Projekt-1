@@ -157,8 +157,6 @@ export class StarGra extends React.Component{
     } else setTimeout(()=>this.setState({
       zywnosc: this.state.zywnosc + Math.floor(Math.random()*ggg*100)
     }), trok);
-    console.log(ggg*1000);
-    console.log(this.state.zywnosc);
   }
   startUpraBaz = e =>{
     this.setState({

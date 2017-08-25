@@ -9,6 +9,7 @@ import {Wydobycie} from './modul/wydobycie.jsx';
 import {Uprawy} from './modul/uprawy.jsx';
 import {Generator} from './modul/generator.jsx';
 import {Magazyny} from './modul/magazyny.jsx';
+import {Raport} from './modul/raport.jsx';
 
 export class GameBoxCont extends React.Component{
   render(){
@@ -131,7 +132,15 @@ export class GameBoxCont extends React.Component{
     } else if(this.props.box == '09'){
       return(
         <div className='gameboxcont'>
-          <p>Raport</p>
+          <Raport
+            budowa={this.props.budowa}
+            budowaTime={this.props.budowaTime}
+            produkcja={this.props.produkcja}
+            produkcjaTime={this.props.produkcjaTime}
+            wyprawaWyslana= {this.props.wyprawaWyslana}
+            wyprawaTime= {this.props.wyprawaTime}
+            uprawaWyslana= {this.props.uprawaWyslana}
+            uprawaTime= {this.props.uprawaTime}/>
         </div>
       );
     } return(
