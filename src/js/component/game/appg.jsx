@@ -12,7 +12,7 @@ export class StarGra extends React.Component{
     this.state = {
       gracz: this.props.gracz,
       //czas gry
-      box: '09', statek: true, statekPobyt: 131, statekZa: 20,  s: 1, m: 0, g: 0,
+      box: '09', s: 1, m: 0, g: 0,
       //data gry
       dni: 1, dniii: 0, mies: 1, rok: 2053,
       // inwestycje
@@ -30,7 +30,10 @@ export class StarGra extends React.Component{
       //załoga
       kolonisci: 60, naukowcy: 40, zolnierz: 5, kolonisciBaza: 60, naukowcyBaza: 40, zolnierzBaza: 5,
       //magazyn
-      krzem: 2000, stal: 2255, uran: 2287, zywnosc: 2000
+      krzem: 2000, stal: 2255, uran: 2287, zywnosc: 2000,
+      //handel
+      statek: true, statekPobyt: 131, statekZa: 20,
+      krzemStatek: 0, krzemStCena: 0, stalStatek: 0, stalStCena: 0, uranStatek: 0, uranStCena: 0, zywnoscStatek: 0, zywnoscStCena: 0
     };
   }
 
@@ -305,12 +308,21 @@ componentDidMount(t){
       });
       if(this.state.statekZa === 0){
         let gg = {
-          statekZa: Math.floor(Math.random() * (365 - 20 + 1)) + 20,
+          statekZa: Math.floor(Math.random()*365) + 20,
+          krzemStatek: Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())),
+          krzemStCena: Math.floor(Math.random()*10) + 15,
+          stalStatek: Math.floor(Math.random()*2000*(this.state.ladowiska+Math.random()) - 1000*(this.state.ladowiska+Math.random())),
+          stalStCena: Math.floor(Math.random()*15) - 20,
+          uranStatek: Math.floor(Math.random()*1000*(this.state.ladowiska+Math.random()) - 500*(this.state.ladowiska+Math.random())),
+          uranStCena: Math.floor(Math.random()*120) - 85,
+          zywnoscStatek: Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())),
+          zywnoscStCena: Math.floor(Math.random()*20) - 10,
           statek: true
         }
         this.setState(gg);
       }
     } else {
+      console.log(Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())));
       this.setState({
         statekPobyt: this.state.statekPobyt - 1
       });
@@ -323,7 +335,7 @@ componentDidMount(t){
       }
     }
     }, 2500);
-}
+  }
 
   render(){
     return(

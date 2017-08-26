@@ -20,21 +20,21 @@ class BoxHandelPoz extends React.Component{
       <div className='boxBoxI'>
         <h1>{this.props.kname}</h1>
         <table>
-          <tr>
+          <tbody>
             <td></td><td>Baza</td><td>Statek</td><td>Cena</td>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <td>Krzem:</td><td>{this.props.krzem}</td>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <td>Stal:</td><td>{this.props.stal}</td>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <td>Uran:</td><td>{this.props.uran}</td>
-          </tr>
-          <tr>
+          </tbody>
+          <tbody>
             <td>Żywność:</td><td>{this.props.zywnosc}</td>
-          </tr>
+          </tbody>
         </table>
         <label>krzem:</label>
         <input type='text' onChange={this.kalkbud}/>
