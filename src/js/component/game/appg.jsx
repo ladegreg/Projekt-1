@@ -16,9 +16,9 @@ export class StarGra extends React.Component{
       //data gry
       dni: 1, dniii: 0, mies: 1, rok: 2053,
       // inwestycje
-      mieszkania: 1, mieszkaniaPojemnosc: 50, magazyny: 1, magazynyPojemnosc: 500, fabryki: 0, ladowiska: 0, budowa: false, budowaTime: 0,
+      mieszkania: 1, mieszkaniaPojemnosc: 50, magazyny: 1, magazynyPojemnosc: 50000, fabryki: 0, ladowiska: 10, budowa: false, budowaTime: 0,
       //produkcja
-      robot1: 0, robot2: 0, generator: 1, samolot: 0, produkcja: false, produkcjaTime: 0,
+      robot1: 5, robot2: 4, generator: 1, samolot: 3, produkcja: false, produkcjaTime: 0,
       //wyprawa
       wyprawaWyslana: false, wyprawaTime: 0, kolonisciWyprawa: 0, naukowcyWyprawa: 0, zolnierzWyprawa: 0,
       //uprawa
@@ -32,8 +32,10 @@ export class StarGra extends React.Component{
       //magazyn
       krzem: 2000, stal: 2255, uran: 2287, zywnosc: 2000,
       //handel
-      statek: true, statekPobyt: 131, statekZa: 20,
-      krzemStatek: 0, krzemStCena: 0, stalStatek: 0, stalStCena: 0, uranStatek: 0, uranStCena: 0, zywnoscStatek: 0, zywnoscStCena: 0
+      statek: false, statekPobyt: 131, statekZa: 1,
+      krzemStatek: 0, krzemStCena: 0, stalStatek: 0, stalStCena: 0, uranStatek: 0, uranStCena: 0, zywnoscStatek: 0, zywnoscStCena: 0,
+      robot1Statek: 0, robot1StCena: 0, robot2Statek: 0, robot2StCena: 0, generatorStatek: 1, generatorStCena: 1, samolotStatek: 0, samolotStCena: 0,
+      cenaBiletu: 0, kolonisciStatek: 0, naukowcyStatek: 0, zolnierzStatek: 0,
     };
   }
 
@@ -308,21 +310,33 @@ componentDidMount(t){
       });
       if(this.state.statekZa === 0){
         let gg = {
-          statekZa: Math.floor(Math.random()*365) + 20,
-          krzemStatek: Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())),
+          statekZa: Math.floor(Math.random()*(365-20)) + 20,
+          krzemStatek: Math.floor(Math.random()*250*(this.state.ladowiska+Math.random()) - 125*(this.state.ladowiska+Math.random())),
           krzemStCena: Math.floor(Math.random()*10) + 15,
-          stalStatek: Math.floor(Math.random()*2000*(this.state.ladowiska+Math.random()) - 1000*(this.state.ladowiska+Math.random())),
-          stalStCena: Math.floor(Math.random()*15) - 20,
-          uranStatek: Math.floor(Math.random()*1000*(this.state.ladowiska+Math.random()) - 500*(this.state.ladowiska+Math.random())),
-          uranStCena: Math.floor(Math.random()*120) - 85,
-          zywnoscStatek: Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())),
-          zywnoscStCena: Math.floor(Math.random()*20) - 10,
+          stalStatek: Math.floor(Math.random()*126*(this.state.ladowiska+Math.random()) - 63*(this.state.ladowiska+Math.random())),
+          stalStCena: Math.floor(Math.random()*15) + 20,
+          uranStatek: Math.floor(Math.random()*64*(this.state.ladowiska+Math.random()) - 32*(this.state.ladowiska+Math.random())),
+          uranStCena: Math.floor(Math.random()*120) + 85,
+          zywnoscStatek: Math.floor(Math.random()*250*(this.state.ladowiska+Math.random()) - 125*(this.state.ladowiska+Math.random())),
+          zywnoscStCena: Math.floor(Math.random()*20) + 10,
+          robot1Statek: Math.floor(Math.random()*12*(this.state.ladowiska+Math.random()) - 6*(this.state.ladowiska+Math.random())),
+          robot1StCena: Math.floor(Math.random()*(1200-799)) + 799,
+          robot2Statek: Math.floor(Math.random()*18*(this.state.ladowiska+Math.random()) - 8*(this.state.ladowiska+Math.random())),
+          robot2StCena: Math.floor(Math.random()*(1990-980)) + 980,
+          generatorStatek: Math.floor(Math.random()*12*(this.state.ladowiska+Math.random()) - 6*(this.state.ladowiska+Math.random())),
+          generatorStCena: Math.floor(Math.random()*(6800-4500)) + 4500,
+          samolotStatek: Math.floor(Math.random()*10*(this.state.ladowiska+Math.random()) - 5*(this.state.ladowiska+Math.random())),
+          samolotStCena: Math.floor(Math.random()*(5400-2700)) + 2700,
+          kolonisciStatek: Math.floor(Math.random()*12*(this.state.ladowiska+Math.random()) - 6*(this.state.ladowiska+Math.random())),
+          naukowcyStatek: Math.floor(Math.random()*9*(this.state.ladowiska+Math.random()) - 5*(this.state.ladowiska+Math.random())),
+          zolnierzStatek: Math.floor(Math.random()*5*(this.state.ladowiska+Math.random()) - 3*(this.state.ladowiska+Math.random())),
+          cenaBiletu: Math.floor(Math.random()*(26-22)) + 22,
           statek: true
         }
         this.setState(gg);
       }
     } else {
-      console.log(Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())));
+      // console.log(Math.floor(Math.random()*3000*(this.state.ladowiska+Math.random()) - 1500*(this.state.ladowiska+Math.random())));
       this.setState({
         statekPobyt: this.state.statekPobyt - 1
       });
@@ -341,6 +355,28 @@ componentDidMount(t){
     return(
       <Contyner
         statek= {this.state.statek}
+        statekPobyt= {this.state.statekPobyt}
+        statekZa= {this.state.statekZa}
+        krzemStatek={this.state.krzemStatek}
+        krzemStCena={this.state.krzemStCena}
+        stalStatek={this.state.stalStatek}
+        stalStCena={this.state.stalStCena}
+        uranStatek={this.state.uranStatek}
+        uranStCena={this.state.uranStCena}
+        zywnoscStatek={this.state.zywnoscStatek}
+        zywnoscStCena={this.state.zywnoscStCena}
+        robot1Statek={this.state.robot1Statek}
+        robot1StCena={this.state.robot1StCena}
+        robot2Statek={this.state.robot2Statek}
+        robot2StCena={this.state.robot2StCena}
+        generatorStatek={this.state.generatorStatek}
+        generatorStCena={this.state.generatorStCena}
+        samolotStatek={this.state.samolotStatek}
+        samolotStCena={this.state.samolotStCena}
+        kolonisciStatek={this.state.kolonisciStatek}
+        cenaBiletu={this.state.cenaBiletu}
+        naukowcyStatek={this.state.naukowcyStatek}
+        zolnierzStatek={this.state.zolnierzStatek}
         gracz= {this.state.gracz}
         box= {this.state.box}
         konto= {this.state.konto}
@@ -361,6 +397,10 @@ componentDidMount(t){
         stal= {this.state.stal}
         uran= {this.state.uran}
         zywnosc= {this.state.zywnosc}
+        robot1= {this.state.robot1}
+        robot2= {this.state.robot2}
+        generator= {this.state.generator}
+        samolot= {this.state.samolot}
         moc= {this.state.generator*2000}
         mocWolna= {(this.state.generator*2000)-this.state.mocBud-this.state.mocProd}
         budowa={this.state.budowa}
@@ -417,6 +457,32 @@ class Contyner extends React.Component{
           <Menu menu= {this.props.menu} />
           <GameBoxCont
             statek= {this.props.statek}
+            statekPobyt= {this.props.statekPobyt}
+            statekZa= {this.props.statekZa}
+            krzemStatek={this.props.krzemStatek}
+            krzemStCena={this.props.krzemStCena}
+            stalStatek={this.props.stalStatek}
+            stalStCena={this.props.stalStCena}
+            uranStatek={this.props.uranStatek}
+            uranStCena={this.props.uranStCena}
+            zywnoscStatek={this.props.zywnoscStatek}
+            zywnoscStCena={this.props.zywnoscStCena}
+            robot1Statek={this.props.robot1Statek}
+            robot1StCena={this.props.robot1StCena}
+            robot2Statek={this.props.robot2Statek}
+            robot2StCena={this.props.robot2StCena}
+            generatorStatek={this.props.generatorStatek}
+            generatorStCena={this.props.generatorStCena}
+            samolotStatek={this.props.samolotStatek}
+            samolotStCena={this.props.samolotStCena}
+            robot1= {this.props.robot1}
+            robot2= {this.props.robot2}
+            generator= {this.props.generator}
+            samolot= {this.props.samolot}
+            kolonisciStatek={this.props.kolonisciStatek}
+            cenaBiletu={this.props.cenaBiletu}
+            naukowcyStatek={this.props.naukowcyStatek}
+            zolnierzStatek={this.props.zolnierzStatek}
             box ={this.props.box}
             mieszkania= {this.props.mieszkania}
             mieszkaniaPojemnosc= {this.props.mieszkaniaPojemnosc}

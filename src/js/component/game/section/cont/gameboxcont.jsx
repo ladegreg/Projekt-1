@@ -129,11 +129,40 @@ export class GameBoxCont extends React.Component{
         <div className='gameboxcont'>
           <Handel
             statek= {this.props.statek}
+            statekPobyt= {this.props.statekPobyt}
+            statekZa= {this.props.statekZa}
+            krzemStatek={this.props.krzemStatek}
+            krzemStCena={this.props.krzemStCena}
+            stalStatek={this.props.stalStatek}
+            stalStCena={this.props.stalStCena}
+            uranStatek={this.props.uranStatek}
+            uranStCena={this.props.uranStCena}
+            zywnoscStatek={this.props.zywnoscStatek}
+            zywnoscStCena={this.props.zywnoscStCena}
             krzem= {this.props.krzem}
             stal= {this.props.stal}
             uran= {this.props.uran}
             zywnosc= {this.props.zywnosc}
-            magazynyPojemnosc= {this.props.magazynyPojemnosc}/>
+            robot1Statek={this.props.robot1Statek}
+            robot1StCena={this.props.robot1StCena}
+            robot2Statek={this.props.robot2Statek}
+            robot2StCena={this.props.robot2StCena}
+            generatorStatek={this.props.generatorStatek}
+            generatorStCena={this.props.generatorStCena}
+            samolotStatek={this.props.samolotStatek}
+            samolotStCena={this.props.samolotStCena}
+            robot1= {this.props.robot1}
+            robot2= {this.props.robot2}
+            generator= {this.props.generator}
+            samolot= {this.props.samolot}
+            magazynyPojemnosc= {this.props.magazynyPojemnosc}
+            kolonisciStatek={this.props.kolonisciStatek}
+            cenaBiletu={this.props.cenaBiletu}
+            naukowcyStatek={this.props.naukowcyStatek}
+            zolnierzStatek={this.props.zolnierzStatek}
+            kolonisci= {this.props.kolonisci}
+            naukowcy= {this.props.naukowcy}
+            zolnierz= {this.props.zolnierz}/>
         </div>
       );
     } else if(this.props.box == '09'){
