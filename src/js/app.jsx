@@ -1,56 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+fetch('http://webapi.allegro.pl/').then( resp => {
 
-import '../scss/style.scss';
+if (resp.ok)
 
-import {StarSaga} from './component/page/appr.jsx';
-import {StarGra} from './component/game/appg.jsx';
+return resp.text();
 
-class App extends React.Component {
-  constructor(props) {
-  super(props);
-  this.state = {
-  gracz: 'Bolek',
-  start: true
-  // gracz: NaN,
-  // start: false
-  }
-}
+else
 
-graczLogo = e => {
-  e.preventDefault();
-  this.setState({
-    gracz: e.target.value
-  })
-}
+throw new Error('Błąd sieci!!');
 
-gameStart = e => {
-  e.preventDefault();
-  this.setState({
-    start: !this.state.start
-  })
-}
+}).then( ip => {
 
-  render(){
-    if(this.state.start == false){
-      return(
-        <StarSaga
-          gracz={this.state.gracz}
-          loginn= {this.graczLogo}
-          startGame= {this.gameStart}/>
-      );
-    } else {
-      return(
-        <StarGra gracz= {this.state.gracz} />
-      );
-    }
-  }
-}
+console.log('Moje IP:', ip);
 
-document.addEventListener('DOMContentLoaded', function(){
+}).catch( err => {
 
-    ReactDOM.render(
-        <App />,
-        document.getElementById('app')
-    );
+console.log('Błąd!', err);
+
 });

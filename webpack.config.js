@@ -9,7 +9,10 @@ const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
-  entry: './src/js/app.jsx',
+  entry: [
+    'whatwg-fetch',
+    './src/js/app.jsx'
+  ],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',

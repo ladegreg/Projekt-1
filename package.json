@@ -1,5 +1,5 @@
 {
-  "name": "projekt1",
+  "name": "PanelAll",
   "version": "1.0.0",
   "description": "Pierwsza gra",
   "main": "webpack.config.js",
